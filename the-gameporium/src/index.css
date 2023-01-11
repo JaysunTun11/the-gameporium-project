@@ -1,0 +1,55 @@
+
+
+
+.navbar {
+  padding:20px;
+  display: flex;
+  align-items: center;
+  width:100%;
+  font-family: 'Quicksand', sans-serif;
+  margin: 0 auto;
+  border-bottom: 1px solid white;
+  background-image: url(https://wallpaperaccess.com/full/3005486.jpg);
+  
+}
+.navbar h1 {
+  color:rgb(0, 0, 0);
+  -webkit-text-stroke-width: 2px;
+  -webkit-text-stroke-color: black;
+  color:white;
+  text-align: center;
+
+
+}
+.navbar .links {
+  font-family: 'Quicksand', sans-serif;
+ margin-left: 0;
+ color: white;
+  
+}
+.navbar a{
+  margin-left: 16px;
+  text-decoration:none;
+  padding: 6px;
+}
+
+.navbar a:hover{
+    color:rgb(255, 0, 0);
+}
+
+.content{
+  font-family: 'Quicksand', sans-serif;
+  height: 100vh;
+  background-image: url("https://i.pinimg.com/originals/28/fe/f9/28fef9ece742153ea400bcae2f1f9d90.jpg");
+  
+  color: rgb(0, 0, 0);
+
+}
+
+.signInDiv {
+  display: none;
+}
+
+.inputPass{
+  width:200px;
+}
