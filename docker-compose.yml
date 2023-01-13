@@ -23,6 +23,8 @@ services:
             DB_USER: postgres
             DB_DATABASE: users
             DB_PASSWORD: hunter2
+        ports:
+            - 5000:5000
         networks:
             - backend
     client:
@@ -31,6 +33,8 @@ services:
             dockerfile: Dockerfile.dev
         image: client:dev
         container_name: client-dev
+        ports:
+            - 3000:3000
         networks:
             - frontend
             - backend
