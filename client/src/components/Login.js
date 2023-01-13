@@ -1,5 +1,6 @@
 import FloatingLabel from 'react-bootstrap/FloatingLabel';
 import Form from 'react-bootstrap/Form';
+import Alert from 'react-bootstrap/Alert';
 import React, {useState} from "react";
 import { Navigate, redirect } from "react-router-dom";
 
@@ -7,11 +8,25 @@ import { Navigate, redirect } from "react-router-dom";
 const LoginPage = ({setAuth, isAuthenticated}) => {
     const [email, setEmail] = useState('');
     const[password, setPass] = useState('');
+
+    const [error, setError] = useState(false);
     
     if(isAuthenticated) {
       return <Navigate to="/dashboard" />
   }
-
+  const errorMessage = () => {
+    return (
+      <div
+        className="error"
+        style={{
+          display: error ? '' : 'none',
+        }}>
+          <Alert key="danger"  variant="danger">
+        <h1>Incorrect Email or Password!</h1>
+        </Alert>
+      </div>
+    );
+  };
 
     const handleSubmit = async (e) => {
         e.preventDefault();
@@ -26,11 +41,16 @@ const LoginPage = ({setAuth, isAuthenticated}) => {
             body: JSON.stringify(body)
           })
           const parseRes = await response.json();
-
-          localStorage.setItem("token", parseRes.token);
+          if (parseRes !="Invalid Email") {
+            localStorage.setItem("token", parseRes.token);
+            setAuth(true);
+            console.log(parseRes)
+          }else {
+            setError(true)
+     
+            
+            }
           
-          setAuth(true);
-          console.log(parseRes)
         } catch (err){
           console.error(err.message)
         }
@@ -45,7 +65,7 @@ const LoginPage = ({setAuth, isAuthenticated}) => {
       
         <div className="content">
 
-
+{errorMessage()}
   
             <br></br>
         <center><h1>Login</h1></center>

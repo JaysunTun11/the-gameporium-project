@@ -15,11 +15,14 @@ import React, {Fragment, useState, useEffect} from "react";
 
 function App() {
   const [isAuthenticated, setIsAuthenticated] = useState(false);
+
+
   
   const setAuth = () => {
     setIsAuthenticated((current) => !current);
   };
 
+  
 
 
   return (
