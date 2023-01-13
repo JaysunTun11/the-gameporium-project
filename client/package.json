@@ -18,7 +18,8 @@
     "react-toastify": "^9.1.1",
     "start": "^5.1.0",
     "toastify": "^2.0.1",
-    "web-vitals": "^2.1.4"
+    "web-vitals": "^2.1.4",
+    "mdb-react-ui-kit": "5.1.0"
   },
   "scripts": {
     "start": "react-scripts start",

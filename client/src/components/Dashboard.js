@@ -55,7 +55,7 @@ const Dashboard = ({setAuth, isAuthenticated}) =>
               <button className ="btn btn-danger btn-block" onClick={e => logout(e)} >Logout</button><center><h1>Dashboard </h1></center>
               <center><h2> Welcome, {name}!</h2></center> 
               
-              <Table striped bordered hover size= "sm">
+              <Table striped bordered hover size= "sm" variant = "dark">
       <thead>
         <tr>
           <th>#</th>
