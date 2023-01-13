@@ -1,8 +1,7 @@
-import FloatingLabel from 'react-bootstrap/FloatingLabel';
-import Form from 'react-bootstrap/Form';
+
 import Alert from 'react-bootstrap/Alert';
 import React, {useState} from "react";
-import { Navigate, redirect } from "react-router-dom";
+import { Navigate } from "react-router-dom";
 
 
 const LoginPage = ({setAuth, isAuthenticated}) => {
@@ -41,7 +40,7 @@ const LoginPage = ({setAuth, isAuthenticated}) => {
             body: JSON.stringify(body)
           })
           const parseRes = await response.json();
-          if (parseRes !="Invalid Email") {
+          if (parseRes !=="Invalid Email") {
             localStorage.setItem("token", parseRes.token);
             setAuth(true);
             console.log(parseRes)

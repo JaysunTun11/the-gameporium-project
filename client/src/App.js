@@ -5,12 +5,12 @@ import AboutUs from './components/AboutUs'
 import BuyPage from './components/Buy'
 import ListingPage from './components/Listings'
 import SellPage from './components/Sell'
-import {BrowserRouter as Router, Route, Routes, Redirect} from 'react-router-dom'
+import {BrowserRouter as Router, Route, Routes} from 'react-router-dom'
 import LoginPage from './components/Login'
-import jwt_decode from "jwt-decode"
+
 import Register from './components/Register'
 import Dashboard from './components/Dashboard'
-import React, {Fragment, useState, useEffect} from "react";
+import React, {useState} from "react";
 
 
 function App() {

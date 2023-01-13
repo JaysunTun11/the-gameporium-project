@@ -1,6 +1,6 @@
 import React, {Fragment, useState} from "react";
 import Alert from 'react-bootstrap/Alert';
-import { Navigate, redirect } from "react-router-dom";
+import { Navigate} from "react-router-dom";
 const Register = ({setAuth, isAuthenticated}) => {
     const [email, setEmail] = useState("");
     const [password, setPass] = useState("");
