@@ -10,7 +10,7 @@ import LoginPage from './components/Login'
 
 import Register from './components/Register'
 import Dashboard from './components/Dashboard'
-import React, {useState} from "react";
+import React, {useState, useEffect} from "react";
 
 
 function App() {
@@ -22,8 +22,26 @@ function App() {
     setIsAuthenticated((current) => !current);
   };
 
-  
+  async function isAuth(){
+    try{
+      const response = await fetch("http://localhost:5000/auth/is-verify", {
+        method: "GET",
+        headers: {token : localStorage.token}
+      });
 
+
+      const parseRes = await response.json()
+
+      parseRes === true ? setIsAuthenticated(true):
+      setIsAuthenticated(false)
+    } catch (err){
+      console.error(err.message)
+    }
+  }
+  
+  useEffect(() => {
+    isAuth()
+  })
 
   return (
      <div id = "App">

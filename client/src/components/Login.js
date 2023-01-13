@@ -45,6 +45,7 @@ const LoginPage = ({setAuth, isAuthenticated}) => {
             setAuth(true);
             console.log(parseRes)
           }else {
+            
             setError(true)
      
             
