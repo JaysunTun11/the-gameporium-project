@@ -4,18 +4,36 @@ import React, {useState} from "react";
 import { Navigate, redirect } from "react-router-dom";
 
 
-const LoginPage = ({setAuth}) => {
+const LoginPage = ({setAuth, isAuthenticated}) => {
     const [email, setEmail] = useState('');
-    const[pass, setPass] = useState('');
+    const[password, setPass] = useState('');
     
-   /*  if(setAuth){
-      return <Navigate replace to="/dashboard"/>;
-    } */
+    if(isAuthenticated) {
+      return <Navigate to="/dashboard" />
+  }
 
 
-    const handleSubmit = (e) => {
+    const handleSubmit = async (e) => {
         e.preventDefault();
-        console.log(email);
+
+        try{
+          const body = {email, password};
+
+          
+          const response = await fetch("http://localhost:5000/auth/login", {
+            method: "POST",
+            headers: {"Content-Type": "application/json" },
+            body: JSON.stringify(body)
+          })
+          const parseRes = await response.json();
+
+          localStorage.setItem("token", parseRes.token);
+          
+          setAuth(true);
+          console.log(parseRes)
+        } catch (err){
+          console.error(err.message)
+        }
 
     }
     return ( 
@@ -40,14 +58,14 @@ const LoginPage = ({setAuth}) => {
       <br></br>
       <br></br>
       <label htmlfor = "Password"></label>
-        <input value={pass} onChange={(e) => setPass(e.target.value)} type = "password" placeholder ="Password"></input>
+        <input value={password} onChange={(e) => setPass(e.target.value)} type = "password" placeholder ="Password"></input>
     
    
       <br></br>
       <br></br>
 
-      <button type = "submit" className='btn'>Log In</button>
-      <button type = "submit" className='btn'>Authenticate</button>
+      <button type = "submit" className='btn btn-success btn-block'>Log In</button>
+
       </center>
       </form>
         <br></br>

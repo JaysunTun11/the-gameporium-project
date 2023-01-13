@@ -1,18 +1,22 @@
-import React, {Fragment} from "react"
+import React, {Fragment, useState, useEffect} from "react"
 import { Navigate } from "react-router-dom";
 
 
-const Dashboard = ({setAuth}) => 
+const Dashboard = ({setAuth, isAuthenticated}) => 
    {
 
-    if (!setAuth) {
-        // user is not authenticated
-        return <Navigate to="/" />;
-      }
+    if(!isAuthenticated) {
+      return <Navigate to="/login" />
+  }
 
     return ( 
         <Fragment>
-            <div className = "content">Dashboard</div>
+          
+            <div className = "content">
+              <br></br>
+              <center><h1>Dashboard</h1></center>
+            
+            </div>
         </Fragment>
      );
 }

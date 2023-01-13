@@ -15,28 +15,30 @@ import React, {Fragment, useState, useEffect} from "react";
 
 function App() {
   const [isAuthenticated, setIsAuthenticated] = useState(false);
-  const setAuth = (boolean) => {
-    setIsAuthenticated(boolean);
+  
+  const setAuth = () => {
+    setIsAuthenticated((current) => !current);
   };
+
 
 
   return (
      <div id = "App">
       
     <Router>
-    <Navbar />
+    <Navbar setAuth ={setAuth} isAuthenticated = {isAuthenticated}/>
     <Routes>
-
-    <Route exact path='/' element ={<Homepage />} />
-    <Route exact path='/register' element = {<Register  setAuth ={setAuth}/>}   />
+    
+    <Route exact path='/' element ={<Homepage setAuth ={setAuth} setIsAuthenticated = {setIsAuthenticated}/>} />
+    <Route exact path='/register' element = {<Register  setAuth ={setAuth} isAuthenticated = {isAuthenticated}/>}   />
     <Route exact path='/aboutus' element={<AboutUs/>} />
     <Route exact path='/listings' element={<ListingPage/>} />
     <Route exact path='/buy' element={<BuyPage/>} />
     <Route exact path='/sell' element={<SellPage/>} />
 
-    <Route exact path='/login' element={<LoginPage setAuth ={setAuth}/>} />
+    <Route exact path='/login' element={<LoginPage setAuth ={setAuth} isAuthenticated = {isAuthenticated}/>} />
     
-    <Route path='/dashboard' element={<Dashboard setAuth ={setAuth}/>} />
+    <Route path='/dashboard' element={<Dashboard setAuth ={setAuth} isAuthenticated = {isAuthenticated}/>} />
     </Routes>
     </Router>
     

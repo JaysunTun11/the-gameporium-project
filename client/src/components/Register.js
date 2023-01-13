@@ -1,7 +1,7 @@
 import React, {Fragment, useState} from "react";
 import Alert from 'react-bootstrap/Alert';
 import { Navigate, redirect } from "react-router-dom";
-const Register = ({setAuth}) => {
+const Register = ({setAuth, isAuthenticated}) => {
     const [email, setEmail] = useState("");
     const [password, setPass] = useState("");
     const [pass2, setPass2] = useState("");
@@ -11,10 +11,10 @@ const Register = ({setAuth}) => {
     const [error2, setError2] = useState(false);
 
 
-   /*  if(setAuth){
-      return <Navigate replace to="/dashboard"/>;
-    } */
 
+    if(isAuthenticated) {
+      return <Navigate to="/dashboard" />
+  }
 
     const successMessage = () => {
         return (
@@ -77,17 +77,29 @@ const Register = ({setAuth}) => {
            const response = await fetch("http://localhost:5000/auth/Register",{
             method: "POST",
             headers: {"Content-Type": "application/json"},
+
             body: JSON.stringify(body)
            });
            
-           const parseRes = await response.json()
+           const parseRes = await response.json();
+
+           localStorage.setItem("token", parseRes.token);
+
+           setAuth(true);
+           console.log(setAuth)
+
+
            setError(false)
             setSubmitted(true);
             setError2(false);
             console.log(parseRes)
+
+
+
         } catch (err){
           console.error(err.message);
         }
+        
       }
     }
 
@@ -138,7 +150,7 @@ const Register = ({setAuth}) => {
       <br></br>
       <br></br>
 
-      <button type = "submit" onClick={handleSubmit} className="btn">Register</button>
+      <button type = "submit" onClick={handleSubmit} className="btn btn-success btn-block">Register</button>
 
       <br></br>
       <br></br>

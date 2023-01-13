@@ -1,6 +1,8 @@
 
 
-const Navbar = () => {
+const Navbar = ({setAuth, isAuthenticated}) => {
+
+
     return ( 
         <div className = "navbar">
             <h1>The Gameporium</h1>
@@ -11,6 +13,9 @@ const Navbar = () => {
                 <a href ="/Sell">Sell </a>
                 <a href ="/Listings">Listings </a>
                 <a href ="/Login">Log in </a>
+                <a href ="/Dashboard">Dashboard </a>
+
+                
             </div>
           
         </div>
