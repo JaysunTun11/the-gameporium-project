@@ -1,0 +1,52 @@
+version: "3.8"
+
+services: 
+    database:
+        image: postgres:15.1-alpine
+        container_name: database-dev
+        volumes: 
+            - database-data:/var/lib/postgresql/data
+        environment:
+            POSTGRES_DB: users
+            POSTGRES_PASSWORD: hunter2
+        networks:
+            - backend
+    server:
+        build: 
+            context: ./server
+            dockerfile: Dockerfile.dev
+        image: server:dev
+        container_name: server-dev
+        environment: 
+            DB_HOST: database ## same as the database service name
+            DB_PORT: 5432
+            DB_USER: postgres
+            DB_DATABASE: users
+            DB_PASSWORD: hunter2
+        ports:
+            - 5000:5000
+        networks:
+            - backend
+    client:
+        build:
+            context: ./client
+            dockerfile: Dockerfile.dev
+        image: client:dev
+        container_name: client-dev
+        ports:
+            - 3000:3000
+        networks:
+            - frontend
+            - backend
+
+volumes:
+    database-data:
+        name: database-dev-data
+
+networks: 
+    frontend:
+        name: application-network-frontend
+        driver: bridge
+    backend:
+        name: application-network-backend
+        driver: bridge
