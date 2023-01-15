@@ -19,7 +19,7 @@ function Navbar(){
   const [showBasic, setShowBasic] = useState(false);
 
   return (
-    <MDBNavbar expand='lg' light bgColor='light'>
+    <MDBNavbar expand='lg' light bgColor='light' sticky>
       <MDBContainer fluid>
         <MDBNavbarBrand href='/'>The Gameporium</MDBNavbarBrand>
 
@@ -40,7 +40,7 @@ function Navbar(){
               </MDBNavbarLink>
             </MDBNavbarItem>
             <MDBNavbarItem>
-              <MDBNavbarLink active aria-current='page' href='Sell'>Post a Listing</MDBNavbarLink>
+              <MDBNavbarLink active aria-current='page' href='Sell'>Post Listing</MDBNavbarLink>
             </MDBNavbarItem>
 
             <MDBNavbarItem>

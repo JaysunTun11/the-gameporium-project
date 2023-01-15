@@ -1,6 +1,6 @@
 import Homepage from './components/Homepage'
 import Navbar from './components/Navbar'
-
+import Footer from './components/Footer'
 import AboutUs from './components/AboutUs'
 import BuyPage from './components/Buy'
 import ListingPage from './components/Listings'
@@ -11,7 +11,6 @@ import LoginPage from './components/Login'
 import Register from './components/Register'
 import Dashboard from './components/Dashboard'
 import React, {useState, useEffect} from "react";
-
 
 function App() {
   const [isAuthenticated, setIsAuthenticated] = useState(false);
@@ -61,6 +60,8 @@ function App() {
     
     <Route path='/dashboard' element={<Dashboard setAuth ={setAuth} isAuthenticated = {isAuthenticated}/>} />
     </Routes>
+
+    <Footer></Footer>
     </Router>
     
     </div>
