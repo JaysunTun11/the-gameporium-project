@@ -1,11 +1,10 @@
 import React, {Fragment} from "react"
 
   
-const Homepage = ({setAuth, setIsAuthenticated}) => {
-    
-
+const Homepage = () => {
 
     
+
     return ( 
         <Fragment>
         <div className ="content">
@@ -13,8 +12,7 @@ const Homepage = ({setAuth, setIsAuthenticated}) => {
         
 
         <center><h1>Welcome </h1></center>
-        
-    
+             
         </div>
 
         </Fragment>

@@ -31,10 +31,19 @@
   margin-left: 16px;
   text-decoration:none;
   padding: 6px;
+  color:rgb(255, 0, 0);
+  font-weight:bold;
 }
 
+/* .navbar a:visited{
+  margin-left: 16px;
+  text-decoration:none;
+  padding: 6px;
+  color: rgb(128, 255, 128);
+} */
+
 .navbar a:hover{
-    color:rgb(255, 0, 0);
+  color: rgb(175, 70, 189);
 }
 
 .content{
@@ -52,4 +61,12 @@
 
 .inputPass{
   width:200px;
+}
+
+.aboutUsImages .figure{
+  display:inline-block;
+}
+
+.aboutUsImages .figCaption{
+  text-align:center;
 }
