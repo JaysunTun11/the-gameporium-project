@@ -1,3 +1,5 @@
+CREATE DATABASE userinfo;
+\c userinfo
 
 create extension if not exists "uuid-ossp";
 

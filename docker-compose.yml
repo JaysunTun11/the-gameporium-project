@@ -3,12 +3,11 @@ version: "3.8"
 services: 
     database:
         image: postgres:15.1-alpine
-        container_name: database-dev
+        container_name: database
         volumes: 
-            - database-data:/var/lib/postgresql/data
+          ##      - database-data:/var/lib/postgresql/data
             - ./database/initdb.sql:/docker-entrypoint-initdb.d/initdb.sql
         environment:
-            POSTGRES_DB: users
             POSTGRES_PASSWORD: admin
         networks:
             - backend
@@ -17,23 +16,24 @@ services:
             context: ./server
             dockerfile: Dockerfile.dev
         image: server:dev
-        container_name: server-dev
+        container_name: server
         environment: 
             DB_HOST: database ## same as the database service name
             DB_PORT: 5432
             DB_USER: postgres
-            DB_DATABASE: users
+            DB_DATABASE: userinfo
             DB_PASSWORD: admin
         ports:
             - 5000:5000
         networks:
             - backend
+            - frontend
     client:
         build:
             context: ./client
             dockerfile: Dockerfile.dev
         image: client:dev
-        container_name: client-dev
+        container_name: client
         ports:
             - 3000:3000
         networks:
@@ -42,7 +42,7 @@ services:
 
 volumes:
     database-data:
-        name: database-dev-data
+        name: database-data
 
 networks: 
     frontend:
