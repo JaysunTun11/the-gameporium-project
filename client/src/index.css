@@ -34,10 +34,19 @@
   margin-left: 16px;
   text-decoration:none;
   padding: 6px;
+  color:rgb(255, 0, 0);
+  font-weight:bold;
 }
 
+/* .navbar a:visited{
+  margin-left: 16px;
+  text-decoration:none;
+  padding: 6px;
+  color: rgb(128, 255, 128);
+} */
+
 .navbar a:hover{
-    color:rgb(255, 0, 0);
+  color: rgb(175, 70, 189);
 }
 
 .content{
@@ -69,31 +78,10 @@ html,body
   width:200px;
 }
 
-.banner{
-  background-color: rgb(86, 134, 18);
-  color: white;
-  height: 300px;
+.aboutUsImages .figure{
+  display:inline-block;
 }
 
-.welcomefont{
-  font-size: 100px;
-}
-
-.popular{
-  height: 500px;
-  background-color: black;
-  font-family: 'Quicksand', sans-serif;
-
-}
-.carousel {
-  width:100%;
-  height: 700px
-}
-
-.strong{
-  opacity: 1.0;
-}
-
-div {
-  font-family: 'RittswoodImpresive_6', sans-serif;
+.aboutUsImages .figCaption{
+  text-align:center;
 }

@@ -24,3 +24,12 @@ CREATE TABLE users(
 -- Failed authentication https://stackoverflow.com/questions/55038942/fatal-password-authentication-failed-for-user-postgres-postgresql-11-with-pg
 
 INSERT INTO users (user_name, user_email, user_password) VALUES ('Jason', 'tonjason@gmail.com', 'Sanic1234')
+
+CREATE TABLE listings(
+    listing_id uuid PRIMARY KEY DEFAULT uuid_generate_v4(),
+    user_name VARCHAR(255) NOT NULL,
+    listing_location VARCHAR(255) NOT NULL,
+    product_name VARCHAR(255) NOT NULL,
+    product_tags text[],
+    product_price VARCHAR(50) NOT NULL
+);
