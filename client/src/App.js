@@ -54,7 +54,7 @@ function App() {
     <Route exact path='/aboutus' element={<AboutUs/>} />
     <Route exact path='/listings' element={<ListingPage/>} />
     <Route exact path='/buy' element={<BuyPage/>} />
-    <Route exact path='/sell' element={<SellPage setAuth ={setAuth} isAuthenticated={isAuthenticated}/>} />
+    <Route exact path='/sell' element={<SellPage/>} />
 
     <Route exact path='/login' element={<LoginPage setAuth ={setAuth} isAuthenticated = {isAuthenticated}/>} />
     

@@ -13,21 +13,30 @@ export default function Homepage() {
 
 
   
-const Homepage = () => {
-
-    
 
   return (
     <header>
       
       
-      <div className='p-5 text-center bg-image'>
+      <div
+        className='p-5 text-center bg-image'
         
-
-        <center><h1>Welcome </h1></center>
+        style={{ backgroundImage: "url(https://wallpaperforu.com/wp-content/uploads/2020/07/pixel-art-wallpaper-20072220002729.png)", height: '400px'}}
+      >
+        <div className='mask'>
+          <div className='d-flex justify-content-center align-items-center h-100'>
+            <div className='text-black'>
+              
+              <h1 className='mb-3'>Welcome!</h1>
+              <h4 className='mb-3'>The Gameporium is a site for selling and buying second hand games!</h4>
              
+              <a className='btn btn-light btn-lg' href='listings' role='button'>
+                    Shop Now!
+                </a>
+            </div>
+          </div>
         </div>
-
+      </div> 
       
       <br></br>
       <br></br>
@@ -138,5 +147,4 @@ const Homepage = () => {
 
     
   );
-}
 }
