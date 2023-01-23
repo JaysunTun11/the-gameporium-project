@@ -39,6 +39,8 @@ services:
         networks:
             - frontend
             - backend
+        volumes:
+          - ./client/src:/app/src
 
 volumes:
     database-data:
