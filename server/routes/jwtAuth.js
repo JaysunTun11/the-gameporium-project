@@ -57,6 +57,7 @@ router.post("/login", validInfo, async (req, res) => {
         const {email,password} = req.body;
 
         //2. check if user exists
+			      console.log("{}", pool);
             const user = await pool.query("SELECT * FROM users WHERE user_email = $1",
             [email
             ]);
@@ -76,6 +77,7 @@ router.post("/login", validInfo, async (req, res) => {
         const token = jwtGenerator(user.rows[0].user_id);
         res.json({token});
     } catch (err) {
+			  console.error("{}, {} ", pool.user, pool.password);
         console.error(err.message)
     }
 });
