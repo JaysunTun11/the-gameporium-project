@@ -1,4 +1,4 @@
-# The-Gameporium
+# The-Gameporium (in progress)
 Website for selling second hand games
 
 
